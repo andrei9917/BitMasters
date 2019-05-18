@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     GoogleSignInClient signInClient;
-
+    int itemSelected = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if (itemSelected == 1) {
+            itemSelected = 0;
             super.onBackPressed();
         }
     }
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        itemSelected = 1;
         if (id == R.id.nav_alarma) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AlarmItem()).commit();
         } else if (id == R.id.nav_calendar) {
