@@ -18,8 +18,13 @@ import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
+import com.example.andrei.bitmasters.MusicGenres;
 
 public class PersonalityItem extends Fragment {
 
@@ -35,7 +40,297 @@ public class PersonalityItem extends Fragment {
 
     }
 
+    protected void addGenres(){
+        ArrayList<MusicGenres> musicGenress = new ArrayList<>();
+        MusicGenres genre = new MusicGenres();
+        genre.setPersonality("Analyst");
+        genre.addGenre("rock/ metal/ indie",0.41);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.76);
+        genre.addGenre("jazz",0.54);
+        genre.addGenre("punk",0.46);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
 
+        genre.setPersonality("Diplomat");
+        genre.addGenre("rock/ metal/ indie",0.28);
+        genre.addGenre("blues/ soul",0.48);
+        genre.addGenre("world/ ambient",0.54);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.54);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Sentinel");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.43);
+        genre.addGenre("religion music",0.4);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Explorer");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.64);
+        genre.addGenre("raggae",0.35);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("People Mastery");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.53);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.38);
+        genre.addGenre("classical",0.76);
+        genre.addGenre("jazz",0.6);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.4);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Constant Improver");
+        genre.addGenre("rock/ metal/ indie",0.54);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.46);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Social Engagement");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.53);
+        genre.addGenre("electronic/ hip-hop/ pop",0.69);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.35);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Logician");
+        genre.addGenre("rock/ metal/ indie",0.43);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.51);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Mediator");
+        genre.addGenre("rock/ metal/ indie",0.56);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.49);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Virtuos");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.48);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Commander");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.23);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.79);
+        genre.addGenre("jazz",0.64);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Protagonist");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.26);
+        genre.addGenre("world/ ambient",0.26);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.64);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Compaigner");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.55);
+        genre.addGenre("world/ ambient",0.59);
+        genre.addGenre("electronic/ hip-hop/ pop",0.25);
+        genre.addGenre("raggae",0.42);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.62);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Architect");
+        genre.addGenre("rock/ metal/ indie",0.14);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.78);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Debater");
+        genre.addGenre("rock/ metal/ indie",0.57);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.76);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Advocate");
+        genre.addGenre("rock/ metal/ indie",0.28);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.23);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Adventurer");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.32);
+        genre.addGenre("electronic/ hip-hop/ pop",0.26);
+        genre.addGenre("raggae",0.46);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Entrepreneur");
+        genre.addGenre("rock/ metal/ indie",0.17);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.46);
+        genre.addGenre("raggae",0.42);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Entertainer");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.28);
+        genre.addGenre("world/ ambient",0.31);
+        genre.addGenre("electronic/ hip-hop/ pop",0.48);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.52);
+        genre.addGenre("religion music",0.0);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Consul");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.52);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.27);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.53);
+        genre.addGenre("religion music",0.39);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Executive");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.19);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.48);
+        musicGenress.add(genre);
+
+        genre.setPersonality("Defender");
+        genre.addGenre("rock/ metal/ indie",0.0);
+        genre.addGenre("blues/ soul",0.0);
+        genre.addGenre("world/ ambient",0.0);
+        genre.addGenre("electronic/ hip-hop/ pop",0.0);
+        genre.addGenre("raggae",0.0);
+        genre.addGenre("classical",0.0);
+        genre.addGenre("jazz",0.0);
+        genre.addGenre("punk",0.0);
+        genre.addGenre("country",0.0);
+        genre.addGenre("religion music",0.42);
+        musicGenress.add(genre);
+
+
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -43,8 +338,6 @@ public class PersonalityItem extends Fragment {
         rc = getView().findViewById(R.id.radar_chart);
         ArrayList<Integer> elems = new ArrayList<>(Arrays.asList(1, 5, 4, 5, 3));
         setData(elems);
-
-
     }
 
     private void setData(ArrayList<Integer> input) {
