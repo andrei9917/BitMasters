@@ -15,6 +15,7 @@ public class PersonalityItem extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        // hello
         return inflater.inflate(R.layout.personality_item, container, false);
 
     }
