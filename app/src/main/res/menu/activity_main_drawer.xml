@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_alarma"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_alarm_clock"
             android:title="Alarm" />
         <item
             android:id="@+id/nav_calendar"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_calendar"
             android:title="Calendar" />
         <item
             android:id="@+id/nav_mood"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_mood"
             android:title="Mood" />
         <item
             android:id="@+id/nav_personality"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_personality"
             android:title="Personality" />
     </group>
 
@@ -26,7 +26,7 @@
         <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_about"
                 android:title="About" />
             <item
                 android:id="@+id/nav_signout"
