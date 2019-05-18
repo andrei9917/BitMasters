@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity
 
     GoogleSignInClient signInClient;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

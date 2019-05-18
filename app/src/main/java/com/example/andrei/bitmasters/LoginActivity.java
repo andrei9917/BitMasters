@@ -1,8 +1,8 @@
 package com.example.andrei.bitmasters;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -72,8 +72,10 @@ public class LoginActivity extends AppCompatActivity {
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
+
             Log.w("Google Sign In Error", "signInResult:failed code=" + e.getStatusCode());
-            Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_LONG).show();
+            // Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
