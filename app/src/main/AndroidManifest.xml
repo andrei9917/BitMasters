@@ -13,7 +13,11 @@
 
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".LoginActivity">
+            android:name=".FututiMortiiMatii"
+            android:label="@string/title_activity_fututi_mortii_matii"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".GenreSlidersActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
