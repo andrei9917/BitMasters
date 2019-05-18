@@ -30,7 +30,7 @@ public class PersonalityItem extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        // hello
+        // hello hi
         return inflater.inflate(R.layout.personality_item, container, false);
 
     }
