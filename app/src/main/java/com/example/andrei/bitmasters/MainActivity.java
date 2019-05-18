@@ -14,8 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -103,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -115,6 +121,38 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        signInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(MainActivity.this);
+
+        try {
+
+
+        } catch (Exception e) {
+
+        }
+        /*Uri personPhoto = acct.getPhotoUrl();
+        ImageView img = findViewById(R.id.imageView);
+        Glide.with(this).load(personPhoto).into(img);*/
+        // Create glide request manager
+        RequestManager requestManager = Glide.with(this);
+// Create request builder and load image.
+        RequestBuilder requestBuilder = requestManager.load(acct.getPhotoUrl());
+// Show image into target imageview.
+        ImageView imageView = findViewById(R.id.imageView);
+        requestBuilder.into(imageView);
+        try {
+            TextView name = findViewById(R.id.nameTextView);
+            name.setText(acct.getDisplayName());
+        } catch (Exception e) {
+        }
+        TextView email = findViewById(R.id.emailTextView);
+        email.setText(acct.getEmail());
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
