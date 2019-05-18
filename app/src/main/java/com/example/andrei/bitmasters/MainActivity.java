@@ -141,15 +141,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_alarma) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AlarmItem()).commit();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_calendar) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CalendarItem()).commit();
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_mood) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new MoodItem()).commit();
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_personality) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PersonalityItem()).commit();
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_about) {
             super.onOptionsItemSelected(null);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AboutItem()).commit();
         } else if (id == R.id.nav_signout) {
