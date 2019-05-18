@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 public class AlarmItem extends Fragment {
 
     @Nullable
@@ -18,4 +17,6 @@ public class AlarmItem extends Fragment {
         return inflater.inflate(R.layout.alarm_item, container, false);
 
     }
+
+
 }
