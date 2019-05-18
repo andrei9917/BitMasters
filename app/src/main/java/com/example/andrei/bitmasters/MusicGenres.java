@@ -1,8 +1,5 @@
 package com.example.andrei.bitmasters;
 
-import org.json.JSONObject;
-import org.json.JSONWriter;
-
 import java.util.HashMap;
 import java.util.Set;
 
