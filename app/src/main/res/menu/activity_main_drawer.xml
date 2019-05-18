@@ -5,29 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_alarma"
+            android:icon="@drawable/ic_alarm_clock"
             android:title="Alarm" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
             android:title="Calendar" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_mood"
+            android:icon="@drawable/ic_mood2"
             android:title="Mood" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:id="@+id/nav_personality"
+            android:icon="@drawable/ic_personality"
             android:title="Personality" />
-        <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="About" />
-        <item
-            android:id="@+id/nav_signout"
-            android:icon="@drawable/googleg_disabled_color_18"
-            android:title="Sign out" />
     </group>
 
+    <item android:title="Communicate">
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"
+                android:title="About" />
+            <item
+                android:id="@+id/nav_signout"
+                android:icon="@drawable/ic_quit"
+                android:title="Sign out" />
+        </group>
+    </item>
 </menu>
