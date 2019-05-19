@@ -24,7 +24,7 @@ public class worldPicker extends AppCompatActivity {
                 Intent intent = null;
                 switch (i) {
                     case 0:
-                        intent = new Intent(this, worldPicker.class);
+                        intent = new Intent(this, rockPicker.class);
                         break;
                     case 1:
                         intent = new Intent(this, bluesPicker.class);
@@ -36,13 +36,13 @@ public class worldPicker extends AppCompatActivity {
                         intent = new Intent(this, electronicPicker.class);
                         break;
                     case 4:
-                        //intent = new Intent(this, reggaePicker.class);
+                        intent = new Intent(this, reggaePicker.class);
                         break;
                     case 5:
-                        //intent = new Intent(this, classicalPicker.class);
+                        intent = new Intent(this, classicalPicker.class);
                         break;
                     case 6:
-                        //intent = new Intent(this, jazzPicker.class);
+                        intent = new Intent(this, jazzPicker.class);
                         break;
                     case 7:
                         //intent = new Intent(this, punkPicker.class);
@@ -60,6 +60,8 @@ public class worldPicker extends AppCompatActivity {
 
                 }
                 if (intent != null) {
+                    ArrayList<Integer> sliderValues = getIntent().getIntegerArrayListExtra("sliderValues");
+                    intent.putExtra("sliderValues", sliderValues);
                     intent.putExtra("data", visitedGenres);
                     startActivity(intent);
                     finish();

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class GenreSlidersActivity extends AppCompatActivity {
 
-    private void goToNextPicker(ArrayList<Integer> visitedGenres) {
+    private void goToNextPicker(ArrayList<Integer> visitedGenres, ArrayList<Integer> sliderValues) {
 
         for (int i = 0; i < visitedGenres.size(); i++) {
             if (visitedGenres.get(i) == 0) { // need to visit
@@ -30,16 +30,16 @@ public class GenreSlidersActivity extends AppCompatActivity {
                         intent = new Intent(this, worldPicker.class);
                         break;
                     case 3:
-                        // intent = new Intent(this, electricPicker.class);
+                        intent = new Intent(this, electronicPicker.class);
                         break;
                     case 4:
-                        //intent = new Intent(this, reggaePicker.class);
+                        intent = new Intent(this, reggaePicker.class);
                         break;
                     case 5:
-                        //intent = new Intent(this, classicalPicker.class);
+                        intent = new Intent(this, classicalPicker.class);
                         break;
                     case 6:
-                        //intent = new Intent(this, jazzPicker.class);
+                        intent = new Intent(this, jazzPicker.class);
                         break;
                     case 7:
                         //intent = new Intent(this, punkPicker.class);
@@ -56,8 +56,11 @@ public class GenreSlidersActivity extends AppCompatActivity {
 
                 }
                 if (intent != null) {
+
+                    intent.putExtra("sliderValues", sliderValues);
                     intent.putExtra("data", visitedGenres);
                     startActivity(intent);
+                    finish();
                     return;
                 }
             }
@@ -73,13 +76,8 @@ public class GenreSlidersActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: EDIT THIS PLS
 
-                SeekBar seekBar = findViewById(R.id.seekBar1);
-                seekBar.getProgress();
-                Intent intent = new Intent(GenreSlidersActivity.this, rockPicker.class);
 
-                ArrayList<Integer> arrayList = new ArrayList<>();
 
                 ArrayList<Integer> seekBarArray = new ArrayList<>();
                 seekBarArray.add(R.id.seekBar1);
@@ -94,10 +92,11 @@ public class GenreSlidersActivity extends AppCompatActivity {
                 seekBarArray.add(R.id.seekBar10);
 
                 ArrayList<Integer> visitedGenres = new ArrayList<>();
+                ArrayList<Integer> sliderValues = new ArrayList<>();
 
                 for (int i = 0; i < seekBarArray.size(); i++) {
                     SeekBar seekBar1 = findViewById(seekBarArray.get(i));
-                    arrayList.add(seekBar1.getProgress());
+                    sliderValues.add(seekBar1.getProgress());
                     if (seekBar1.getProgress() > 2) {
                         visitedGenres.add(0);
                     } else {
@@ -108,7 +107,7 @@ public class GenreSlidersActivity extends AppCompatActivity {
                 // personality activity
                 visitedGenres.add(0);
 
-                goToNextPicker(visitedGenres);
+                goToNextPicker(visitedGenres, sliderValues);
 
             }
         });

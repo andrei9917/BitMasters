@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="90% depresie\n10% lol"
+        android:text="Take the test first!"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTakeTheTest"
         app:layout_constraintEnd_toEndOf="parent"

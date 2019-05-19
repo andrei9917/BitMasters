@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".classicalPicker"
+    tools:showIn="@layout/activity_rock_picker">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200sp">
+
+            <ImageView
+                android:id="@+id/imageClassical1"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical1" />
+
+            <ImageView
+                android:id="@+id/imageClassical2"
+                android:layout_width="188dp"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageClassical3"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical3" />
+
+            <ImageView
+                android:id="@+id/imageClassical4"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageClassical5"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical5" />
+
+            <ImageView
+                android:id="@+id/imageClassical6"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/classical6" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+</android.support.v4.widget.NestedScrollView>

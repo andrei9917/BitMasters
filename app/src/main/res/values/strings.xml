@@ -115,4 +115,7 @@
     <string name="title_activity_blues_picker">Blues</string>
     <string name="title_activity_world_picker">World</string>
     <string name="title_activity_electronic_picker">Electronic</string>
+    <string name="title_activity_reggae_picker">Reggae</string>
+    <string name="title_activity_classical_picker">Classical</string>
+    <string name="title_activity_jazz_picker">Jazz</string>
 </resources>

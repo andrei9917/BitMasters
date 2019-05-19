@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class electronicPicker extends AppCompatActivity {
+public class reggaePicker extends AppCompatActivity {
 
     private void goToNextPicker() {
 
@@ -74,8 +74,8 @@ public class electronicPicker extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_electronic_picker);
-        Toolbar toolbar = findViewById(R.id.toolbarElectronic);
+        setContentView(R.layout.activity_reggae_picker);
+        Toolbar toolbar = findViewById(R.id.toolbarReggae);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -90,12 +90,12 @@ public class electronicPicker extends AppCompatActivity {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
 
-        arrayList.add(R.id.imageElectronic1);
-        arrayList.add(R.id.imageElectronic2);
-        arrayList.add(R.id.imageElectronic3);
-        arrayList.add(R.id.imageElectronic4);
-        arrayList.add(R.id.imageElectronic5);
-        arrayList.add(R.id.imageElectronic6);
+        arrayList.add(R.id.imageReggae1);
+        arrayList.add(R.id.imageReggae2);
+        arrayList.add(R.id.imageReggae3);
+        arrayList.add(R.id.imageReggae4);
+        arrayList.add(R.id.imageReggae5);
+        arrayList.add(R.id.imageReggae6);
 
         addClickListeners(arrayList);
 
