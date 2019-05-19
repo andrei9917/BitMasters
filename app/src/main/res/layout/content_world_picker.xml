@@ -24,7 +24,7 @@
                 android:clickable="true"
                 android:cropToPadding="false"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world1" />
+                app:srcCompat="@raw/world1" />
 
             <ImageView
                 android:id="@+id/imageWorld2"
@@ -33,7 +33,7 @@
                 android:layout_weight="0.5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world2" />
+                app:srcCompat="@raw/world2" />
 
         </TableRow>
 
@@ -48,7 +48,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world3" />
+                app:srcCompat="@raw/world3" />
 
             <ImageView
                 android:id="@+id/imageWorld4"
@@ -57,7 +57,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world4" />
+                app:srcCompat="@raw/world4" />
         </TableRow>
 
         <TableRow
@@ -71,7 +71,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world5" />
+                app:srcCompat="@raw/world5" />
 
             <ImageView
                 android:id="@+id/imageWorld6"
@@ -80,7 +80,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/world6" />
+                app:srcCompat="@raw/world6" />
         </TableRow>
 
         <TableRow

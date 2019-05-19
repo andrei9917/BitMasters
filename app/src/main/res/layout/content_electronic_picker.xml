@@ -24,7 +24,7 @@
                 android:clickable="true"
                 android:cropToPadding="false"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic1" />
+                app:srcCompat="@raw/electronic1" />
 
             <ImageView
                 android:id="@+id/imageElectronic2"
@@ -33,7 +33,7 @@
                 android:layout_weight="0.5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic2" />
+                app:srcCompat="@raw/electronic2" />
 
         </TableRow>
 
@@ -48,7 +48,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic3" />
+                app:srcCompat="@raw/electronic3" />
 
             <ImageView
                 android:id="@+id/imageElectronic4"
@@ -57,7 +57,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic4" />
+                app:srcCompat="@raw/electronic4" />
         </TableRow>
 
         <TableRow
@@ -71,7 +71,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic5" />
+                app:srcCompat="@raw/electronic5" />
 
             <ImageView
                 android:id="@+id/imageElectronic6"
@@ -80,7 +80,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/electronic6" />
+                app:srcCompat="@raw/electronic6" />
         </TableRow>
 
         <TableRow
