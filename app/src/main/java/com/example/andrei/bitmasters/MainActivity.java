@@ -39,14 +39,21 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setTitle("Main Page");
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();
-                startActivity(new Intent(MainActivity.this, GenreSlidersActivity.class));
+                //startActivity(new Intent(MainActivity.this, GenreSlidersActivity.class));
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else if (itemSelected == 1) {
+                    itemSelected = 0;
+                    MainActivity.super.onBackPressed();
+                }
             }
         });
 
@@ -109,16 +116,10 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
+    /*@Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else if (itemSelected == 1) {
-            itemSelected = 0;
-            super.onBackPressed();
-        }
-    }
+
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -180,16 +181,22 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Toolbar toolbar = findViewById(R.id.toolbar);
         itemSelected = 1;
         if (id == R.id.nav_alarma) {
+            toolbar.setTitle("Alarm");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AlarmItem()).commit();
         } else if (id == R.id.nav_calendar) {
+            toolbar.setTitle("Calendar");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CalendarItem()).commit();
         } else if (id == R.id.nav_mood) {
+            toolbar.setTitle("Mood");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new MoodItem()).commit();
         } else if (id == R.id.nav_personality) {
+            toolbar.setTitle("Personality");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PersonalityItem()).commit();
         } else if (id == R.id.nav_about) {
+            toolbar.setTitle("About");
             super.onOptionsItemSelected(null);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AboutItem()).commit();
         } else if (id == R.id.nav_signout) {
