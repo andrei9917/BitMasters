@@ -62,6 +62,7 @@ public class rockPicker extends AppCompatActivity {
                 if (intent != null) {
                     intent.putExtra("data", visitedGenres);
                     startActivity(intent);
+                    finish();
                     return;
                 }
             }

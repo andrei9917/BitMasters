@@ -24,7 +24,7 @@
                 android:clickable="true"
                 android:cropToPadding="false"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock1" />
+                app:srcCompat="@raw/rock1" />
 
             <ImageView
                 android:id="@+id/imageRock2"
@@ -33,7 +33,7 @@
                 android:layout_weight="0.5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock2" />
+                app:srcCompat="@raw/rock2" />
 
         </TableRow>
 
@@ -48,7 +48,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock3" />
+                app:srcCompat="@raw/rock3" />
 
             <ImageView
                 android:id="@+id/imageRock4"
@@ -57,7 +57,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock4" />
+                app:srcCompat="@raw/rock4" />
         </TableRow>
 
         <TableRow
@@ -71,7 +71,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock5" />
+                app:srcCompat="@raw/rock5" />
 
             <ImageView
                 android:id="@+id/imageRock6"
@@ -80,7 +80,7 @@
                 android:layout_weight=".5"
                 android:clickable="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rock6" />
+                app:srcCompat="@raw/rock6" />
         </TableRow>
 
         <TableRow
