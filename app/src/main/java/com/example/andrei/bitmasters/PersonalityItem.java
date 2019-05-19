@@ -1,5 +1,6 @@
 package com.example.andrei.bitmasters;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.data.RadarData;
@@ -18,13 +20,7 @@ import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
-import com.example.andrei.bitmasters.MusicGenres;
 
 public class PersonalityItem extends Fragment {
 
@@ -331,6 +327,7 @@ public class PersonalityItem extends Fragment {
 
 
     }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -338,6 +335,16 @@ public class PersonalityItem extends Fragment {
         rc = getView().findViewById(R.id.radar_chart);
         ArrayList<Integer> elems = new ArrayList<>(Arrays.asList(1, 5, 4, 5, 3));
         setData(elems);
+
+        Button test = getActivity().findViewById(R.id.buttonTakeTheTest);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GenreSlidersActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setData(ArrayList<Integer> input) {

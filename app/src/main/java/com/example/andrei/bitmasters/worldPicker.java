@@ -2,16 +2,19 @@ package com.example.andrei.bitmasters;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.SeekBar;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class GenreSlidersActivity extends AppCompatActivity {
+public class worldPicker extends AppCompatActivity {
 
-    private void goToNextPicker(ArrayList<Integer> visitedGenres) {
+    private void goToNextPicker() {
+
+        ArrayList<Integer> visitedGenres = getIntent().getIntegerArrayListExtra("data");
 
         for (int i = 0; i < visitedGenres.size(); i++) {
             if (visitedGenres.get(i) == 0) { // need to visit
@@ -21,7 +24,7 @@ public class GenreSlidersActivity extends AppCompatActivity {
                 Intent intent = null;
                 switch (i) {
                     case 0:
-                        intent = new Intent(this, rockPicker.class);
+                        intent = new Intent(this, worldPicker.class);
                         break;
                     case 1:
                         intent = new Intent(this, bluesPicker.class);
@@ -30,7 +33,7 @@ public class GenreSlidersActivity extends AppCompatActivity {
                         intent = new Intent(this, worldPicker.class);
                         break;
                     case 3:
-                        // intent = new Intent(this, electricPicker.class);
+                        intent = new Intent(this, electronicPicker.class);
                         break;
                     case 4:
                         //intent = new Intent(this, reggaePicker.class);
@@ -52,6 +55,7 @@ public class GenreSlidersActivity extends AppCompatActivity {
                         break;
                     case 10:
                         intent = new Intent(this, MainActivity.class);
+                        visitedGenres.set(10, 0);
                         break;
 
                 }
@@ -67,52 +71,47 @@ public class GenreSlidersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_genre_sliders);
+        setContentView(R.layout.activity_world_picker);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.title_activity_world_picker);
 
-        Button b = findViewById(R.id.button2);
-        b.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // TODO: EDIT THIS PLS
+            public void onClick(View view) {
 
-                SeekBar seekBar = findViewById(R.id.seekBar1);
-                seekBar.getProgress();
-                Intent intent = new Intent(GenreSlidersActivity.this, rockPicker.class);
-
-                ArrayList<Integer> arrayList = new ArrayList<>();
-
-                ArrayList<Integer> seekBarArray = new ArrayList<>();
-                seekBarArray.add(R.id.seekBar1);
-                seekBarArray.add(R.id.seekBar2);
-                seekBarArray.add(R.id.seekBar3);
-                seekBarArray.add(R.id.seekBar4);
-                seekBarArray.add(R.id.seekBar5);
-                seekBarArray.add(R.id.seekBar6);
-                seekBarArray.add(R.id.seekBar7);
-                seekBarArray.add(R.id.seekBar8);
-                seekBarArray.add(R.id.seekBar9);
-                seekBarArray.add(R.id.seekBar10);
-
-                ArrayList<Integer> visitedGenres = new ArrayList<>();
-
-                for (int i = 0; i < seekBarArray.size(); i++) {
-                    SeekBar seekBar1 = findViewById(seekBarArray.get(i));
-                    arrayList.add(seekBar1.getProgress());
-                    if (seekBar1.getProgress() > 2) {
-                        visitedGenres.add(0);
-                    } else {
-                        visitedGenres.add(1);
-                    }
-                }
-
-                // personality activity
-                visitedGenres.add(0);
-
-                goToNextPicker(visitedGenres);
-
+                goToNextPicker();
             }
         });
+
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        arrayList.add(R.id.imageWorld1);
+        arrayList.add(R.id.imageWorld2);
+        arrayList.add(R.id.imageWorld3);
+        arrayList.add(R.id.imageWorld4);
+        arrayList.add(R.id.imageWorld5);
+        arrayList.add(R.id.imageWorld6);
+
+        addClickListeners(arrayList);
+
     }
 
+    private void addClickListeners(ArrayList<Integer> arrayList) {
 
+        for (Integer id : arrayList) {
+            final ImageView imageView = findViewById(id);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (imageView.getAlpha() == .5f)
+                        imageView.setAlpha(1f);
+                    else
+                        imageView.setAlpha(.5f);
+                }
+            });
+        }
+    }
 }

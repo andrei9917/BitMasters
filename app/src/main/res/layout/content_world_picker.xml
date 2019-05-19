@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".worldPicker"
+    tools:showIn="@layout/activity_rock_picker">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200sp">
+
+            <ImageView
+                android:id="@+id/imageWorld1"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world1" />
+
+            <ImageView
+                android:id="@+id/imageWorld2"
+                android:layout_width="188dp"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageWorld3"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world3" />
+
+            <ImageView
+                android:id="@+id/imageWorld4"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageWorld5"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world5" />
+
+            <ImageView
+                android:id="@+id/imageWorld6"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/world6" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+</android.support.v4.widget.NestedScrollView>

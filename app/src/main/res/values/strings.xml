@@ -97,18 +97,22 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="setup_question">On a scale from 1 to 10, how much do you enjoy each genre ?</string>
+    <string name="setup_question">On a scale from 0 to 10, how much do you enjoy each genre ?</string>
     <string name="zero">0</string>
     <string name="ten">10</string>
-    <string name="genre1">Genre1</string>
-    <string name="genre2">Genre2</string>
-    <string name="genre3">Genre3</string>
-    <string name="genre4">Genre4</string>
-    <string name="genre5">Genre5</string>
-    <string name="genre6">Genre6</string>
-    <string name="genre7">Genre7</string>
-    <string name="genre8">Genre8</string>
-    <string name="genre9">Genre9</string>
-    <string name="genre10">Genre10</string>
+    <string name="genre1">rock/ metal/ indie</string>
+    <string name="genre2">blues/ soul</string>
+    <string name="genre3">world/ ambient</string>
+    <string name="genre4">electronic/ hip-hop/ pop</string>
+    <string name="genre5">raggae</string>
+    <string name="genre6">classical</string>
+    <string name="genre7">jazz</string>
+    <string name="genre8">punk</string>
+    <string name="genre9">country</string>
+    <string name="genre10">religion music</string>
     <string name="title_activity_fututi_mortii_matii">FututiMortiiMatii</string>
+    <string name="title_activity_rock_picker">Rock</string>
+    <string name="title_activity_blues_picker">Blues</string>
+    <string name="title_activity_world_picker">World</string>
+    <string name="title_activity_electronic_picker">Electronic</string>
 </resources>
