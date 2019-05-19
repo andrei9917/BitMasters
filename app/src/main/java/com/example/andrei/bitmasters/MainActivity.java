@@ -137,17 +137,6 @@ public class MainActivity extends AppCompatActivity
         //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new MusicPlayer()).commit();
 
 
-        path = "android:resources://" + getPackageName() +"/raw/";
-        //Toast.makeText(getActivity(), path,Toast.LENGTH_SHORT).show();
-        /*mySongs.add(new File(s1.getPath()));
-        Uri s2 = Uri.parse(path + "higher.mp3");
-        mySongs.add(new File(s2.getPath()));
-        Uri s3 = Uri.parse(path + "mindcontrol.mp3");
-        mySongs.add(new File(s3.getPath()));
-        Uri s4 = Uri.parse(path + "see_me_in_your_eyes.mp3");
-        mySongs.add(new File(s4.getPath()));
-        Uri s5 = Uri.parse(path + "unreal_reality.mp3");
-        mySongs.add(new File(s5.getPath()));*/
         btn_next = findViewById(R.id.nextbt);
         btn_pause = findViewById(R.id.pausebt);
         btn_prev = findViewById(R.id.prevbt);
@@ -156,7 +145,31 @@ public class MainActivity extends AppCompatActivity
         songSeekBar = findViewById(R.id.seekBarSong);
 
 
-        /*updateSeekBar = new Thread(){
+
+        if(myPlayer!=null){
+            myPlayer.stop();
+            myPlayer.release();
+        }
+        songsIdArr.add(R.raw.mindcontrol);
+        songsIdArr.add(R.raw.here_for_more);
+        songsIdArr.add(R.raw.higher);
+        songsIdArr.add(R.raw.see_me_in_your_eyes);
+        songsIdArr.add(R.raw.unreal_reality);
+        myPlayer = MediaPlayer.create(this, songsIdArr.get(0));
+        songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(0)));
+        songIndex=0;
+        //myPlayer.start();
+        if(myPlayer.isPlaying() == false){
+            btn_pause.setBackgroundResource(R.drawable.ic_playbt);
+        }
+
+        songSeekBar.setMax(myPlayer.getDuration());
+        songSeekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
+        songSeekBar.getThumb().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+
+
+        updateSeekBar = new Thread(){
             @Override
             public void run() {
                 int totalDuration = myPlayer.getDuration();
@@ -171,38 +184,7 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
             }
-        };*/
-
-        if(myPlayer!=null){
-            myPlayer.stop();
-            myPlayer.release();
-        }
-        songsIdArr.add(R.raw.mindcontrol);
-        songsIdArr.add(R.raw.here_for_more);
-        songsIdArr.add(R.raw.mindcontrol);
-        songsIdArr.add(R.raw.see_me_in_your_eyes);
-        songsIdArr.add(R.raw.unreal_reality);
-        myPlayer = MediaPlayer.create(this, songsIdArr.get(0));
-        songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(0)));
-        songIndex=0;
-        //myPlayer.start();
-        if(myPlayer.isPlaying() == false){
-            btn_pause.setBackgroundResource(R.drawable.ic_playbt);
-        }/*
-        sname = mySongs.get(songIndex).getName().toString();
-
-        songTextLabel.setText(sname);
-        songTextLabel.setSelected(true);
-
-        songIndex = 0;
-        Uri u = Uri.parse(mySongs.get(songIndex).toString());
-
-        myPlayer = MediaPlayer.create(getApplicationContext(),u);
-        songSeekBar.setMax(myPlayer.getDuration());
-        songSeekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
-        songSeekBar.getThumb().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-
-
+        };
         songSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -218,7 +200,7 @@ public class MainActivity extends AppCompatActivity
             public void onStopTrackingTouch(SeekBar seekBar) {
                 myPlayer.seekTo(seekBar.getProgress());
             }
-        });*/
+        });updateSeekBar.start();
         btn_pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,7 +208,9 @@ public class MainActivity extends AppCompatActivity
                 if (myPlayer.isPlaying()){
                     btn_pause.setBackgroundResource(R.drawable.ic_playbt);
                     myPlayer.pause();
-                    //updateSeekBar.stop();
+                    try {
+                        //updateSeekBar.wait();
+                    }catch (Exception e){}
                 }
                 else {
                     btn_pause.setBackgroundResource(R.drawable.ic_pausebt);
@@ -244,8 +228,14 @@ public class MainActivity extends AppCompatActivity
                 songIndex = (songIndex + 1)%songsIdArr.size();
                 myPlayer = MediaPlayer.create(getApplicationContext(), songsIdArr.get(songIndex));
                 songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(songIndex)));
-                myPlayer.start();
-
+                if (myPlayer.isPlaying()){
+                    btn_pause.setBackgroundResource(R.drawable.ic_playbt);
+                    myPlayer.pause();
+                }
+                else {
+                    btn_pause.setBackgroundResource(R.drawable.ic_pausebt);
+                    myPlayer.start();
+                }
             }
         });
         btn_prev.setOnClickListener(new View.OnClickListener() {
@@ -256,7 +246,14 @@ public class MainActivity extends AppCompatActivity
                 songIndex = ((songIndex - 1) < 0 )?(songsIdArr.size()-1):songIndex-1;
                 myPlayer = MediaPlayer.create(getApplicationContext(), songsIdArr.get(songIndex));
                 songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(songIndex)));
-                myPlayer.start();
+                if (myPlayer.isPlaying()){
+                    btn_pause.setBackgroundResource(R.drawable.ic_playbt);
+                    myPlayer.pause();
+                }
+                else {
+                    btn_pause.setBackgroundResource(R.drawable.ic_pausebt);
+                    myPlayer.start();
+                }
             }
         });
 
