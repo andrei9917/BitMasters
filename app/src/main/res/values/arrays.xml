@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="moodTypes">
+        <item>Happy</item>
+        <item>Angry</item>
+        <item>Sad</item>
+        <item>Nervous</item>
+    </string-array>
+
+    <string-array name="activityTypes">
+        <item>Driving</item>
+        <item>Hiking</item>
+        <item>Working</item>
+        <item>Chilling</item>
+    </string-array>
+</resources>

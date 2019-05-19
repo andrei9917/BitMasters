@@ -4,18 +4,18 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_logo"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".FututiMortiiMatii"
             android:label="@string/title_activity_fututi_mortii_matii"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity android:name=".GenreSlidersActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -28,6 +28,29 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".rockPicker"
+            android:label="@string/title_activity_rock_picker"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".bluesPicker"
+            android:label="@string/title_activity_blues_picker" />
+        <activity
+            android:name=".worldPicker"
+            android:label="@string/title_activity_world_picker" />
+        <activity
+            android:name=".electronicPicker"
+            android:label="@string/title_activity_electronic_picker" />
+        <activity
+            android:name=".reggaePicker"
+            android:label="@string/title_activity_reggae_picker" />
+        <activity
+            android:name=".classicalPicker"
+            android:label="@string/title_activity_classical_picker" />
+
+        <activity
+            android:name=".jazzPicker"
+            android:label="@string/title_activity_jazz_picker" />
     </application>
 
 </manifest>

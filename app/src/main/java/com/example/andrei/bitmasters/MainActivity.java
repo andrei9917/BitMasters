@@ -1,6 +1,7 @@
 package com.example.andrei.bitmasters;
 
 import android.content.Intent;
+
 import android.graphics.PorterDuff;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -62,14 +63,21 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setTitle("Main Page");
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //        .setAction("Action", null).show();
-                startActivity(new Intent(MainActivity.this, GenreSlidersActivity.class));
+                //startActivity(new Intent(MainActivity.this, GenreSlidersActivity.class));
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else if (itemSelected == 1) {
+                    itemSelected = 0;
+                    MainActivity.super.onBackPressed();
+                }
             }
         });
 
@@ -263,7 +271,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else if (itemSelected == 1) {
             itemSelected = 0;
-            super.onBackPressed();
+            MainActivity.super.onBackPressed();
         }
     }
 
@@ -327,16 +335,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Toolbar toolbar = findViewById(R.id.toolbar);
         itemSelected = 1;
         if (id == R.id.nav_alarma) {
+            toolbar.setTitle("Alarm");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AlarmItem()).commit();
         } else if (id == R.id.nav_calendar) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CalendarItem()).commit();
+            toolbar.setTitle("Calendar");
+            //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CalendarItem()).commit();
+            openCalendarTab();
+            finish();
         } else if (id == R.id.nav_mood) {
+            toolbar.setTitle("Mood");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new MoodItem()).commit();
         } else if (id == R.id.nav_personality) {
+            toolbar.setTitle("Personality");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PersonalityItem()).commit();
         } else if (id == R.id.nav_about) {
+            toolbar.setTitle("About");
             super.onOptionsItemSelected(null);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new AboutItem()).commit();
         } else if (id == R.id.nav_signout) {
@@ -346,6 +362,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void openCalendarTab() {
+        //
+        // startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.google.android.calendar");
+        if (launchIntent != null) {
+            startActivity(launchIntent);//null pointer check in case package name was not found
+        } else {
+            // Bring user to the market or let them choose an app?
+            launchIntent = new Intent(Intent.ACTION_VIEW);
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            launchIntent.setData(Uri.parse("market://details?id=" + "com.google.android.calendar"));
+            startActivity(launchIntent);
+        }
     }
 
     private void signOut() {

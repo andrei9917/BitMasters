@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".rockPicker"
+    tools:showIn="@layout/activity_rock_picker">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200sp">
+
+            <ImageView
+                android:id="@+id/imageRock1"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock1" />
+
+            <ImageView
+                android:id="@+id/imageRock2"
+                android:layout_width="188dp"
+                android:layout_height="200sp"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageRock3"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock3" />
+
+            <ImageView
+                android:id="@+id/imageRock4"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageRock5"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock5" />
+
+            <ImageView
+                android:id="@+id/imageRock6"
+                android:layout_width="wrap_content"
+                android:layout_height="200sp"
+                android:layout_weight=".5"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@raw/rock6" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+</android.support.v4.widget.NestedScrollView>
