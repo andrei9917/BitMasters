@@ -1,10 +1,15 @@
 package com.example.andrei.bitmasters;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,7 +18,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +35,28 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ListView listViewForSongs;
+    Button btn_next,btn_prev,btn_pause;
+    TextView songTextLabel;
+    SeekBar songSeekBar;
+
+    static MediaPlayer myPlayer;
+    Integer songIndex;
+    String mood, genre, personality, sname, path;
+    ArrayList<File> mySongs;
+    Thread updateSeekBar;
+    ArrayList<Integer> songsIdArr = new ArrayList<>();
     GoogleSignInClient signInClient;
-    int itemSelected = 0;
+    Integer itemSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -55,7 +78,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -104,8 +126,133 @@ public class MainActivity extends AppCompatActivity
         {}
         TextView email = findViewById(R.id.emailTextView);
         email.setText(acct.getEmail());*/
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new MusicPlayer()).commit();
 
 
+        path = "android:resources://" + getPackageName() +"/raw/";
+        //Toast.makeText(getActivity(), path,Toast.LENGTH_SHORT).show();
+        /*mySongs.add(new File(s1.getPath()));
+        Uri s2 = Uri.parse(path + "higher.mp3");
+        mySongs.add(new File(s2.getPath()));
+        Uri s3 = Uri.parse(path + "mindcontrol.mp3");
+        mySongs.add(new File(s3.getPath()));
+        Uri s4 = Uri.parse(path + "see_me_in_your_eyes.mp3");
+        mySongs.add(new File(s4.getPath()));
+        Uri s5 = Uri.parse(path + "unreal_reality.mp3");
+        mySongs.add(new File(s5.getPath()));*/
+        btn_next = findViewById(R.id.nextbt);
+        btn_pause = findViewById(R.id.pausebt);
+        btn_prev = findViewById(R.id.prevbt);
+
+        songTextLabel = findViewById(R.id.songNameTV);
+        songSeekBar = findViewById(R.id.seekBarSong);
+
+
+        /*updateSeekBar = new Thread(){
+            @Override
+            public void run() {
+                int totalDuration = myPlayer.getDuration();
+                int crtPosition = 0;
+                while (crtPosition < totalDuration){
+                    try{
+                        sleep(500);
+                        crtPosition=myPlayer.getCurrentPosition();
+                        songSeekBar.setProgress(crtPosition);
+                    }catch (InterruptedException e ){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };*/
+
+        if(myPlayer!=null){
+            myPlayer.stop();
+            myPlayer.release();
+        }
+        songsIdArr.add(R.raw.mindcontrol);
+        songsIdArr.add(R.raw.here_for_more);
+        songsIdArr.add(R.raw.mindcontrol);
+        songsIdArr.add(R.raw.see_me_in_your_eyes);
+        songsIdArr.add(R.raw.unreal_reality);
+        myPlayer = MediaPlayer.create(this, songsIdArr.get(0));
+        //myPlayer.start();
+        if(myPlayer.isPlaying() == false){
+            btn_pause.setBackgroundResource(R.drawable.ic_playbt);
+        }/*
+        sname = mySongs.get(songIndex).getName().toString();
+
+        songTextLabel.setText(sname);
+        songTextLabel.setSelected(true);
+
+        songIndex = 0;
+        Uri u = Uri.parse(mySongs.get(songIndex).toString());
+
+        myPlayer = MediaPlayer.create(getApplicationContext(),u);
+        songSeekBar.setMax(myPlayer.getDuration());
+        songSeekBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
+        songSeekBar.getThumb().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+
+        songSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                myPlayer.seekTo(seekBar.getProgress());
+            }
+        });*/
+
+        btn_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                songSeekBar.setMax(myPlayer.getDuration());
+                if (myPlayer.isPlaying()){
+                    btn_pause.setBackgroundResource(R.drawable.ic_playbt);
+                    myPlayer.pause();
+                    //updateSeekBar.stop();
+                }
+                else {
+                    btn_pause.setBackgroundResource(R.drawable.ic_pausebt);
+                    myPlayer.start();
+                    //updateSeekBar.start();
+                }
+            }
+        });
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myPlayer.stop();
+                myPlayer.release();
+                songIndex = (songIndex + 1)%mySongs.size();
+                Uri u = Uri.parse(mySongs.get(songIndex).toString());
+                myPlayer = MediaPlayer.create(getApplicationContext(), u);
+                sname = mySongs.get(songIndex).getName();
+                songTextLabel.setText(sname);
+                myPlayer.start();
+
+            }
+        });
+        btn_prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myPlayer.stop();
+                myPlayer.release();
+                songIndex = ((songIndex - 1) < 0 )?(mySongs.size()-1):songIndex-1;
+                Uri u = Uri.parse(mySongs.get(songIndex).toString());
+                myPlayer = MediaPlayer.create(getApplicationContext(), u);
+                sname = mySongs.get(songIndex).getName();
+                songTextLabel.setText(sname);
+                myPlayer.start();
+            }
+        });
     }
 
 
