@@ -20,9 +20,7 @@ public class FututiMortiiMatii extends AppCompatActivity {
 
         addData();
 
-
         LinearLayout linearLayout = findViewById(R.id.linearLayout);
-
     }
 
     private void addData() {
