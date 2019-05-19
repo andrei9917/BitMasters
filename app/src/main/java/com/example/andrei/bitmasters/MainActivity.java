@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity
         songsIdArr.add(R.raw.unreal_reality);
         myPlayer = MediaPlayer.create(this, songsIdArr.get(0));
         songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(0)));
+        songIndex=0;
         //myPlayer.start();
         if(myPlayer.isPlaying() == false){
             btn_pause.setBackgroundResource(R.drawable.ic_playbt);
@@ -218,7 +219,6 @@ public class MainActivity extends AppCompatActivity
                 myPlayer.seekTo(seekBar.getProgress());
             }
         });*/
-
         btn_pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -240,11 +240,10 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 myPlayer.stop();
                 myPlayer.release();
-                songIndex = (songIndex + 1)%mySongs.size();
-                Uri u = Uri.parse(mySongs.get(songIndex).toString());
-                myPlayer = MediaPlayer.create(getApplicationContext(), u);
-                sname = mySongs.get(songIndex).getName();
-                songTextLabel.setText(sname);
+                songsIdArr.size();
+                songIndex = (songIndex + 1)%songsIdArr.size();
+                myPlayer = MediaPlayer.create(getApplicationContext(), songsIdArr.get(songIndex));
+                songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(songIndex)));
                 myPlayer.start();
 
             }
@@ -254,15 +253,15 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 myPlayer.stop();
                 myPlayer.release();
-                songIndex = ((songIndex - 1) < 0 )?(mySongs.size()-1):songIndex-1;
-                Uri u = Uri.parse(mySongs.get(songIndex).toString());
-                myPlayer = MediaPlayer.create(getApplicationContext(), u);
-                sname = mySongs.get(songIndex).getName();
-                songTextLabel.setText(sname);
+                songIndex = ((songIndex - 1) < 0 )?(songsIdArr.size()-1):songIndex-1;
+                myPlayer = MediaPlayer.create(getApplicationContext(), songsIdArr.get(songIndex));
+                songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(songIndex)));
                 myPlayer.start();
             }
         });
+
     }
+
 
 
     @Override
