@@ -41,6 +41,16 @@
         <activity
             android:name=".electronicPicker"
             android:label="@string/title_activity_electronic_picker" />
+        <activity
+            android:name=".reggaePicker"
+            android:label="@string/title_activity_reggae_picker" />
+        <activity
+            android:name=".classicalPicker"
+            android:label="@string/title_activity_classical_picker" />
+
+        <activity
+            android:name=".jazzPicker"
+            android:label="@string/title_activity_jazz_picker" />
     </application>
 
 </manifest>

@@ -24,18 +24,17 @@ public class FututiMortiiMatii extends AppCompatActivity {
     }
 
     private void addData() {
+
         Bundle extras = getIntent().getExtras();
         ArrayList<Integer> arrayList = extras.getIntegerArrayList("data");
         LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
 
-    /*
         MusicGenres musicGenres = new MusicGenres();
         String personality = musicGenres.getPersonality(arrayList);
         TextView textView1 = new TextView(this);
         textView1.setText(personality);
         linearLayout.addView(textView1);
-    */
 
 
         // for(int i=0; i<extras.getInt("data"); i++) {
