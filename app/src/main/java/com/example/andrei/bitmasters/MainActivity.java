@@ -183,6 +183,7 @@ public class MainActivity extends AppCompatActivity
         songsIdArr.add(R.raw.see_me_in_your_eyes);
         songsIdArr.add(R.raw.unreal_reality);
         myPlayer = MediaPlayer.create(this, songsIdArr.get(0));
+        songTextLabel.setText(getResources().getResourceEntryName(songsIdArr.get(0)));
         //myPlayer.start();
         if(myPlayer.isPlaying() == false){
             btn_pause.setBackgroundResource(R.drawable.ic_playbt);
